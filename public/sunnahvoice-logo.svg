@@ -1,0 +1,16 @@
+<svg width="310" height="72" viewBox="0 0 310 72" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title description">
+  <title id="title">SunnahVoice</title>
+  <desc id="description">An open book, crescent and sound wave logo for SunnahVoice</desc>
+  <g id="mark">
+    <rect x="2" y="2" width="68" height="68" rx="22" fill="#D6A84B" fill-opacity="0.1" stroke="#D6A84B" stroke-width="2"/>
+    <path d="M15 24.5C22.5 22 29 23.2 35.5 28V51C29 46.4 22.5 45.2 15 47.7V24.5Z" stroke="#E5C679" stroke-width="2.5" stroke-linejoin="round"/>
+    <path d="M56 24.5C48.5 22 42 23.2 35.5 28V51C42 46.4 48.5 45.2 56 47.7V24.5Z" stroke="#E5C679" stroke-width="2.5" stroke-linejoin="round"/>
+    <path d="M35.5 28V51" stroke="#E5C679" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M25 34V39M29.5 32V41.5M42 34V39M46.5 32V41.5" stroke="#E5C679" stroke-width="2" stroke-linecap="round"/>
+    <path d="M47.5 13.5C43.1 14.7 40.5 19.2 41.7 23.6C42.9 28 47.4 30.6 51.8 29.4C48.6 33 43 34.2 38.5 31.7C33.3 28.8 31.5 22.3 34.4 17.1C37 12.4 42.6 10.4 47.5 13.5Z" fill="#D6A84B"/>
+  </g>
+  <g id="wordmark">
+    <text x="84" y="35" fill="#FFFFFF" font-family="DM Sans, Arial, sans-serif" font-size="25" font-weight="700" letter-spacing="0.2">SunnahVoice</text>
+    <text x="85" y="52" fill="#D6A84B" font-family="DM Sans, Arial, sans-serif" font-size="9" font-weight="600" letter-spacing="3.1">MEDIA FOR THE SOUL</text>
+  </g>
+</svg>

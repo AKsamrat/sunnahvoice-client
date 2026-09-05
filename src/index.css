@@ -1,0 +1,241 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@1,600&display=swap");
+@import "tailwindcss";
+@tailwind utilities;
+@custom-variant dark (&:where(.dark, .dark *));
+:root {
+  font-family: "DM Sans", system-ui, sans-serif;
+  color: #082f27;
+  background: #f8f6ef;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+body {
+  transition:
+    background-color 250ms ease,
+    color 250ms ease;
+}
+.dark body {
+  background: #031713;
+  color: #ecfdf5;
+}
+button,
+a,
+input {
+  font: inherit;
+}
+::selection {
+  background: #d6a84b;
+  color: #082f27;
+}
+
+.contact-input {
+  width: 100%;
+  border: 1px solid rgb(6 44 36 / 0.12);
+  border-radius: 1rem;
+  background: rgb(247 243 233 / 0.7);
+  padding: 0.9rem 1rem;
+  color: #062c24;
+  outline: none;
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.contact-input:focus {
+  border-color: #b38735;
+  box-shadow: 0 0 0 3px rgb(214 168 75 / 0.15);
+}
+
+.dark .contact-input {
+  border-color: rgb(255 255 255 / 0.12);
+  background: rgb(255 255 255 / 0.05);
+  color: #ecfdf5;
+}
+
+.contact-input::placeholder {
+  color: #94a3b8;
+}
+
+/* Admin media form stays high-contrast even when the public site is in dark mode. */
+.admin-media-editor .contact-input,
+.dark .admin-media-editor .contact-input {
+  min-height: 3.25rem;
+  border: 2px solid #9baca5 !important;
+  border-radius: 0.9rem !important;
+  background-color: #f4f0e6 !important;
+  padding: 0.9rem 1rem !important;
+  color: #062c24 !important;
+  caret-color: #062c24;
+  box-shadow: inset 0 1px 2px rgb(6 44 36 / 0.06) !important;
+  -webkit-text-fill-color: #062c24;
+}
+
+.admin-media-editor textarea.contact-input,
+.dark .admin-media-editor textarea.contact-input {
+  min-height: 7rem;
+}
+
+.admin-media-editor .contact-input:hover,
+.dark .admin-media-editor .contact-input:hover {
+  border-color: #527267 !important;
+}
+
+.admin-media-editor .contact-input:focus,
+.dark .admin-media-editor .contact-input:focus {
+  border-color: #a67928 !important;
+  background-color: #fffdf8 !important;
+  box-shadow: 0 0 0 4px rgb(214 168 75 / 0.25) !important;
+}
+
+.admin-media-editor .contact-input::placeholder,
+.dark .admin-media-editor .contact-input::placeholder {
+  color: #64748b !important;
+  opacity: 1 !important;
+  -webkit-text-fill-color: #64748b;
+}
+
+.admin-media-editor select.contact-input,
+.dark .admin-media-editor select.contact-input {
+  cursor: pointer;
+  color-scheme: light;
+  background-color: #e7efe9 !important;
+  border-color: #668078 !important;
+  color: #062c24 !important;
+  -webkit-text-fill-color: #062c24;
+}
+
+.admin-media-editor select.contact-input option {
+  background: #ffffff;
+  color: #062c24;
+}
+
+.admin-media-editor .admin-file-input {
+  color: #475569;
+}
+
+.admin-media-editor .admin-file-input::file-selector-button {
+  margin-right: 0.85rem;
+  cursor: pointer;
+  border: 0;
+  border-radius: 999px;
+  background: #062c24;
+  padding: 0.65rem 1rem;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.admin-media-editor .admin-file-input::file-selector-button:hover {
+  background: #a67928;
+}
+
+.auth-input-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  min-height: 3.4rem;
+  border: 1px solid rgb(6 44 36 / 0.12);
+  border-radius: 1rem;
+  background: rgb(255 255 255 / 0.72);
+  padding: 0 1rem;
+  color: rgb(6 44 36 / 0.4);
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.auth-input-wrap:focus-within {
+  border-color: #b38735;
+  box-shadow: 0 0 0 3px rgb(214 168 75 / 0.15);
+}
+
+.auth-input-wrap input {
+  min-width: 0;
+  flex: 1;
+  background: transparent;
+  color: #062c24;
+  outline: none;
+}
+
+.auth-input-wrap button {
+  transition: color 180ms ease;
+}
+
+.auth-input-wrap button:hover {
+  color: #a67928;
+}
+
+.dark .auth-input-wrap {
+  border-color: rgb(255 255 255 / 0.12);
+  background: rgb(255 255 255 / 0.05);
+  color: rgb(255 255 255 / 0.4);
+}
+
+.dark .auth-input-wrap input {
+  color: #ecfdf5;
+}
+
+/* Images: repeating mihrab arches */
+.image-page-watermark {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130' height='160' viewBox='0 0 130 160'%3E%3Cg fill='none' stroke='%23062c24' stroke-opacity='.045' stroke-width='1.3'%3E%3Cpath d='M20 145V66C20 37 38 19 65 8c27 11 45 29 45 58v79M35 145V72c0-21 12-35 30-45 18 10 30 24 30 45v73M8 145h114M65 8v19M50 55h30'/%3E%3C/g%3E%3C/svg%3E");
+  background-attachment: fixed;
+}
+
+.image-watermark-layer {
+  background-image:
+    radial-gradient(circle at 15% 25%, rgb(214 168 75 / 0.14), transparent 25%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='190' height='210' viewBox='0 0 130 160'%3E%3Cpath d='M20 145V66C20 37 38 19 65 8c27 11 45 29 45 58v79M35 145V72c0-21 12-35 30-45 18 10 30 24 30 45v73M8 145h114' fill='none' stroke='%23a67928' stroke-opacity='.12' stroke-width='1.5'/%3E%3C/svg%3E");
+}
+
+/* Videos: crescent and star constellation */
+.video-page-watermark {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cg fill='none' stroke='%23a67928' stroke-opacity='.05'%3E%3Ccircle cx='90' cy='90' r='54'/%3E%3Cpath d='M104 45c-24 6-36 31-27 53 9 22 35 32 56 21-13 19-39 27-62 16-27-13-38-45-25-72 11-23 36-34 58-18Z'/%3E%3Cpath d='m143 36 4 10 10 4-10 4-4 10-4-10-10-4 10-4Z'/%3E%3C/g%3E%3C/svg%3E");
+  background-attachment: fixed;
+}
+
+.video-watermark-layer {
+  background-image:
+    radial-gradient(circle at 80% 35%, rgb(214 168 75 / 0.15), transparent 28%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='190'%3E%3Cpath d='M138 20c-35 9-51 47-36 77 14 29 51 41 79 23-17 29-55 41-88 25-39-19-54-66-35-105 15-31 49-45 80-20Z' fill='none' stroke='%23b38735' stroke-opacity='.11' stroke-width='2'/%3E%3C/svg%3E");
+}
+
+/* Audio: tight four-point Islamic star lattice */
+.audio-page-watermark {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='84' height='60' viewBox='0 0 84 60'%3E%3Cg fill='none' stroke='%23062c24' stroke-opacity='.065' stroke-width='1'%3E%3Cpath d='M0 0 10 9 14 27 30 30 42 20 54 30 70 27 74 9 84 0M0 60l10-9 4-18 16-3 12 10 12-10 16 3 4 18 10 9'/%3E%3Cpath d='m14 27 16-3 12-14 12 14 16 3M14 33l16 3 12 14 12-14 16-3M42 10V0M42 50v10M0 30h14M70 30h14'/%3E%3C/g%3E%3C/svg%3E");
+  background-attachment: fixed;
+}
+
+.audio-watermark-layer {
+  background-color: #183d31;
+  background-image: radial-gradient(circle at 78% 25%, rgb(214 168 75 / 0.08), transparent 30%), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='84' height='60' viewBox='0 0 84 60'%3E%3Cg fill='none' stroke='%2394aa72' stroke-opacity='.13' stroke-width='1'%3E%3Cpath d='M0 0 10 9 14 27 30 30 42 20 54 30 70 27 74 9 84 0M0 60l10-9 4-18 16-3 12 10 12-10 16 3 4 18 10 9'/%3E%3Cpath d='m14 27 16-3 12-14 12 14 16 3M14 33l16 3 12 14 12-14 16-3M42 10V0M42 50v10M0 30h14M70 30h14'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.dark .image-page-watermark,
+.dark .video-page-watermark,
+.dark .audio-page-watermark {
+  background-blend-mode: screen;
+}
+
+.banner-star-pattern {
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='84' height='60' viewBox='0 0 84 60'%3E%3Cg fill='none' stroke='%23a7b88b' stroke-opacity='.16' stroke-width='1'%3E%3Cpath d='M0 0 10 9 14 27 30 30 42 20 54 30 70 27 74 9 84 0M0 60l10-9 4-18 16-3 12 10 12-10 16 3 4 18 10 9'/%3E%3Cpath d='m14 27 16-3 12-14 12 14 16 3M14 33l16 3 12 14 12-14 16-3M42 10V0M42 50v10M0 30h14M70 30h14'/%3E%3C/g%3E%3C/svg%3E");
+  background-position: center;
+}
+
+.islamic-watermark-bg {
+  position: relative;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='84' height='84' viewBox='0 0 180 180'%3E%3Cg fill='none' stroke='%23082f27' stroke-opacity='.045' stroke-width='1.5'%3E%3Cpath d='M90 8 108 56 156 72 108 90 92 138 74 90 26 74 74 56Z'/%3E%3Ccircle cx='90' cy='73' r='38'/%3E%3Cpath d='m90 35 27 11 11 27-11 27-27 11-27-11-11-27 11-27Z'/%3E%3Cpath d='M0 0 26 26M180 0l-26 26M0 180l26-26M180 180l-26-26'/%3E%3C/g%3E%3C/svg%3E");
+  background-attachment: fixed;
+}
+
+.dark .islamic-watermark-bg {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='84' height='84' viewBox='0 0 180 180'%3E%3Cg fill='none' stroke='%23d6a84b' stroke-opacity='.055' stroke-width='1.5'%3E%3Cpath d='M90 8 108 56 156 72 108 90 92 138 74 90 26 74 74 56Z'/%3E%3Ccircle cx='90' cy='73' r='38'/%3E%3Cpath d='m90 35 27 11 11 27-11 27-27 11-27-11-11-27 11-27Z'/%3E%3Cpath d='M0 0 26 26M180 0l-26 26M0 180l26-26M180 180l-26-26'/%3E%3C/g%3E%3C/svg%3E");
+}
