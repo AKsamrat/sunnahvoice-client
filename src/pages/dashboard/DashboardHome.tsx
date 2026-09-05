@@ -1,3 +1,4 @@
+import VisitorAnalytics from "../../components/dashboard/VisitorAnalytics";
 import {
   ArrowRight,
   Download,
@@ -14,7 +15,6 @@ import { useEffect, useState } from "react";
 import { useMedia } from "../../hooks/useMedia";
 import { api } from "../../lib/api";
 
-const activity = [36, 52, 43, 72, 58, 84, 66, 92, 75, 88, 70, 96];
 
 export default function DashboardHome() {
   const { items: mediaItems } = useMedia();
@@ -68,7 +68,7 @@ export default function DashboardHome() {
         <div className="relative flex flex-col justify-between gap-7 lg:flex-row lg:items-center">
           <div>
             <p className="text-xs font-bold uppercase tracking-[.2em] text-[#e2bd69]">
-              Saturday, September 5
+              {new Date().toLocaleDateString(undefined, { weekday: "long", month: "long", day: "numeric" })}
             </p>
             <h2 className="mt-3 text-3xl font-bold sm:text-4xl">
               Assalamu Alaikum, Admin.
@@ -114,41 +114,9 @@ export default function DashboardHome() {
         })}
       </section>
 
-      <section className="mt-7 grid gap-7 xl:grid-cols-[1.25fr_.75fr]">
-        <article className="rounded-[1.75rem] border border-emerald-950/10 bg-white p-6 shadow-sm sm:p-7">
-          <div className="flex items-center justify-between">
-            <div>
-              <h2 className="text-xl font-bold">Audience activity</h2>
-              <p className="mt-1 text-sm text-slate-400">
-                Views across the last 12 months
-              </p>
-            </div>
-            <select className="rounded-full border border-emerald-950/10 px-4 py-2 text-xs outline-none">
-              <option>This year</option>
-              <option>Last year</option>
-            </select>
-          </div>
-          <div className="mt-9 flex h-56 items-end gap-2 sm:gap-4">
-            {activity.map((height, index) => (
-              <div key={index} className="group flex h-full flex-1 items-end">
-                <div
-                  className="relative w-full rounded-t-lg bg-emerald-950/10 transition hover:bg-[#d6a84b]"
-                  style={{ height: `${height}%` }}
-                >
-                  <span className="absolute -top-7 left-1/2 hidden -translate-x-1/2 text-[10px] font-bold group-hover:block">
-                    {height}K
-                  </span>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="mt-3 flex justify-between text-[10px] uppercase text-slate-400">
-            {["Jan", "Mar", "May", "Jul", "Sep", "Nov"].map((month) => (
-              <span key={month}>{month}</span>
-            ))}
-          </div>
-        </article>
+      <VisitorAnalytics />
 
+      <section className="mt-7">
         <article className="rounded-[1.75rem] border border-emerald-950/10 bg-white p-6 shadow-sm sm:p-7">
           <h2 className="text-xl font-bold">Library breakdown</h2>
           <p className="mt-1 text-sm text-slate-400">Published media by type</p>

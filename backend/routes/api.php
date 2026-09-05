@@ -7,11 +7,13 @@ use App\Http\Controllers\Api\ContactController;
 use App\Http\Controllers\Api\DashboardController;
 use App\Http\Controllers\Api\MediaController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\VisitorController;
 
 Route::prefix('v1')->group(function () {
     Route::post('auth/register', [AuthController::class, 'register'])->middleware('throttle:10,1');
     Route::post('auth/login', [AuthController::class, 'login'])->middleware('throttle:10,1');
 
+    Route::post('visits', [VisitorController::class, 'store'])->middleware('throttle:120,1');
     Route::get('categories', [CategoryController::class, 'index']);
     Route::get('media', [MediaController::class, 'index']);
     Route::get('media/{media}', [MediaController::class, 'show']);
@@ -27,6 +29,7 @@ Route::prefix('v1')->group(function () {
         Route::prefix('admin')->middleware('admin')->group(function () {
             Route::get('categories', [CategoryController::class, 'index']);
             Route::get('dashboard', DashboardController::class);
+            Route::get('visitors', [VisitorController::class, 'index']);
             Route::get('media', [MediaController::class, 'index']);
             Route::get('posts', [BlogController::class, 'index']);
             Route::apiResource('categories', CategoryController::class)->except(['index', 'show']);

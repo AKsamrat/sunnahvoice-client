@@ -1,3 +1,4 @@
+import AudioPlayer from "../components/media/AudioPlayer";
 import ContentFilters from "../components/ContentFilters";
 import { useEffect, useState } from "react";
 import {
@@ -73,22 +74,7 @@ function AudioModal({
           <p className="mt-1 text-sm text-white/50">{track.subtitle}</p>
         </div>
 
-        <div className="mt-6 flex h-12 items-center justify-center gap-1 overflow-hidden">
-          {waveform.map((height, index) => (
-            <span
-              key={index}
-              className="w-1 rounded-full bg-[#d6a84b]"
-              style={{
-                height: `${height}%`,
-                opacity: 0.45 + (index % 4) * 0.15,
-              }}
-            />
-          ))}
-        </div>
-
-        <audio src={track.fileUrl} controls autoPlay className="mt-5 w-full">
-          Your browser does not support audio playback.
-        </audio>
+        <AudioPlayer key={track.id} src={track.fileUrl} autoPlay />
 
         <button
           onClick={() => downloadMedia(track)}

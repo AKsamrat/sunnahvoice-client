@@ -1,3 +1,4 @@
+import AudioPlayer from "../components/media/AudioPlayer";
 import {
   ArrowLeft,
   Calendar,
@@ -104,9 +105,7 @@ export default function MediaDetails() {
                       </span>
                     </div>
                   </div>
-                  <audio src={item.fileUrl} controls className="w-full">
-                    Your browser does not support audio.
-                  </audio>
+                  <AudioPlayer key={item.id} src={item.fileUrl} />
                 </div>
               </div>
             )}
