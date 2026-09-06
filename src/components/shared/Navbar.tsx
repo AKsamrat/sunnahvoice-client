@@ -9,8 +9,9 @@ const links = [
   { label: "Images", href: "/images" },
   { label: "Videos", href: "/videos" },
   { label: "Audio", href: "/audio" },
+  { label: "Prayer Time", href: "/prayer-time" },
   { label: "Blog", href: "/blog" },
-  { label: "About", href: "/about" },
+  // { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -27,7 +28,7 @@ export default function Navbar() {
         <Link to="/" aria-label="SunnahVoice home">
           <img src="/header1.png" alt="SunnahVoice" className="h-16 w-auto" />
         </Link>
-        <div className="hidden items-center gap-8 md:flex">
+        <div className="hidden items-center gap-4 xl:gap-6 lg:flex">
           {links.map((link) => (
             <Link
               key={link.label}
@@ -41,7 +42,7 @@ export default function Navbar() {
             </Link>
           ))}
         </div>
-        <div className="hidden items-center gap-3 md:flex">
+        <div className="hidden items-center gap-3 lg:flex">
           <button
             onClick={toggleTheme}
             aria-label="Toggle color theme"
@@ -65,14 +66,14 @@ export default function Navbar() {
         </div>
         <button
           onClick={() => setOpen(!open)}
-          className="text-white md:hidden"
+          className="text-white lg:hidden"
           aria-label="Toggle navigation"
         >
           {open ? <X /> : <Menu />}
         </button>
       </div>
       {open && (
-        <div className="border-t border-white/10 px-6 py-5 md:hidden">
+        <div className="border-t border-white/10 px-6 py-5 lg:hidden">
           {links.map((link) => (
             <Link
               key={link.label}

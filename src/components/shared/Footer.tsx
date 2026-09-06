@@ -22,6 +22,7 @@ const exploreLinks = [
 
 const supportLinks = [
   { label: "Contact us", to: "/contact" },
+  { label: "About", href: "/about" },
   { label: "Suggest media", to: "/contact" },
   { label: "Report an issue", to: "/contact" },
   { label: "Usage guidance", to: "/about" },

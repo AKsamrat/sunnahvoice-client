@@ -1,3 +1,4 @@
+import PrayerTimesCard from "../components/home/PrayerTimesCard";
 import { ArrowRight, BookOpen, Sparkles } from "lucide-react";
 import HomeAudioSection from "../components/home/HomeAudioSection";
 import HomeImageSection from "../components/home/HomeImageSection";
@@ -11,7 +12,7 @@ export default function Home() {
         <div className="banner-star-pattern absolute inset-0 -z-10 opacity-70" />
         <div className="absolute -right-24 top-10 -z-10 h-96 w-96 rounded-full border border-[#d6a84b]/20" />
 
-        <div className="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[1.1fr_.9fr] px-6">
+        <div className="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[1fr_1fr]">
           <div>
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#d6a84b]/30 bg-[#d6a84b]/10 px-4 py-2 text-xs font-semibold uppercase tracking-[.2em] text-[#edcf8d]">
               <Sparkles size={14} />
@@ -43,19 +44,7 @@ export default function Home() {
               <p><strong className="block text-2xl text-white">Free</strong>to benefit</p>
             </div>
           </div>
-          <div className="relative hidden lg:block">
-            <div className="rotate-3 overflow-hidden rounded-[2.5rem] border border-white/10 bg-white/10 p-3 shadow-2xl">
-              <img src="https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?auto=format&fit=crop&w=1100&q=90" alt="The Holy Kaaba in Makkah" className="h-[360px] w-full rounded-[2rem] object-cover" />
-            </div>
-            <div className="absolute -bottom-5 -left-12 max-w-xs rounded-2xl border border-white/15 bg-white/10 p-5 backdrop-blur-xl">
-              <p className="font-serif text-xl italic text-[#f1d794]">
-                “Indeed, in the remembrance of Allah do hearts find rest.”
-              </p>
-              <p className="mt-2 text-xs uppercase tracking-widest text-white/55">
-                Qur&apos;an 13:28
-              </p>
-            </div>
-          </div>
+          <PrayerTimesCard />
         </div>
       </section>
 

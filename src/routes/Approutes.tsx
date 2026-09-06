@@ -1,3 +1,4 @@
+import PrayerTime from "../pages/PrayerTime";
 import { Routes, Route } from "react-router-dom";
 import Home from "../pages/Home";
 import Cart from "../pages/Cart";
@@ -44,6 +45,7 @@ const AppRoutes = () => {
         <Route path="/media/:id" element={<MediaDetails />} />
         <Route path="/images" element={<Images />} />
         <Route path="/videos" element={<Videos />} />
+        <Route path="/prayer-time" element={<PrayerTime />} />
         <Route path="/audio" element={<Audio />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:slug" element={<BlogDetails />} />

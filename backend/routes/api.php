@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\BlogController;
 use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\ContactController;
 use App\Http\Controllers\Api\DashboardController;
+use App\Http\Controllers\Api\DownloadController;
 use App\Http\Controllers\Api\MediaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\VisitorController;
@@ -29,6 +30,7 @@ Route::prefix('v1')->group(function () {
         Route::prefix('admin')->middleware('admin')->group(function () {
             Route::get('categories', [CategoryController::class, 'index']);
             Route::get('dashboard', DashboardController::class);
+            Route::get('downloads', [DownloadController::class, 'index']);
             Route::get('visitors', [VisitorController::class, 'index']);
             Route::get('media', [MediaController::class, 'index']);
             Route::get('posts', [BlogController::class, 'index']);
