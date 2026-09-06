@@ -8,7 +8,7 @@ import {
   Mail,
   ShieldCheck,
 } from "lucide-react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import AuthVisualPanel from "../components/auth/AuthVisualPanel";
 import { api, apiErrorMessage, saveAuthToken } from "../lib/api";
 
@@ -18,6 +18,7 @@ export default function Login() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -31,7 +32,8 @@ export default function Login() {
       });
       saveAuthToken(response.data.token);
       setSubmitted(true);
-      navigate(response.data.user.role === "admin" ? "/dashboard" : "/");
+      const from = location.state?.from;
+      navigate(typeof from === "string" && from.startsWith("/blog/") ? from : response.data.user.role === "admin" ? "/dashboard" : "/");
     } catch (requestError) {
       setError(apiErrorMessage(requestError));
     } finally {

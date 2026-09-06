@@ -253,3 +253,42 @@ input {
 @media (prefers-reduced-motion: reduce) {
   .music-beat-bar { animation: none; }
 }
+
+/* Scroll treatment for the Islamic calendar sidebar. */
+.prayer-panel-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #64964e rgb(255 255 255 / 0.035);
+  scrollbar-gutter: stable;
+  overscroll-behavior-y: contain;
+}
+
+.prayer-panel-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+.prayer-panel-scroll::-webkit-scrollbar-track {
+  margin-block: 12px;
+  border-radius: 999px;
+  background: rgb(255 255 255 / 0.035);
+}
+
+.prayer-panel-scroll::-webkit-scrollbar-thumb {
+  min-height: 40px;
+  border: 2px solid #111b14;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #8bbd70, #427f32);
+}
+
+.prayer-panel-scroll::-webkit-scrollbar-thumb:hover {
+  background: #a9d98c;
+}
+
+.prayer-panel-scroll::-webkit-scrollbar-thumb:active {
+  background: #d6a84b;
+}
+
+@media (forced-colors: active) {
+  .prayer-panel-scroll {
+    scrollbar-color: auto;
+  }
+}

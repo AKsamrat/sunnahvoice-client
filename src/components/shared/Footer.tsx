@@ -1,3 +1,4 @@
+import { api, apiErrorMessage } from "../../lib/api";
 import { useState, type FormEvent } from "react";
 import {
   ArrowRight,
@@ -22,7 +23,7 @@ const exploreLinks = [
 
 const supportLinks = [
   { label: "Contact us", to: "/contact" },
-  { label: "About", href: "/about" },
+  { label: "About", to: "/about" },
   { label: "Suggest media", to: "/contact" },
   { label: "Report an issue", to: "/contact" },
   { label: "Usage guidance", to: "/about" },
@@ -42,12 +43,26 @@ const socialLinks = [
 
 export default function Footer() {
   const [subscribed, setSubscribed] = useState(false);
+  const [subscribing, setSubscribing] = useState(false);
+  const [subscribeError, setSubscribeError] = useState("");
   const latestMedia = mediaItems.slice(-3).reverse();
 
-  const handleSubscribe = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubscribe = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setSubscribed(true);
-    event.currentTarget.reset();
+    if (subscribing) return;
+    const form = event.currentTarget;
+    const email = String(new FormData(form).get("email") ?? "").trim();
+    setSubscribing(true);
+    setSubscribeError("");
+    try {
+      await api.post("/subscribe", { email });
+      setSubscribed(true);
+      form.reset();
+    } catch (error) {
+      setSubscribeError(apiErrorMessage(error));
+    } finally {
+      setSubscribing(false);
+    }
   };
 
   return (
@@ -67,14 +82,16 @@ export default function Footer() {
           </div>
 
           {subscribed ? (
-            <div className="flex min-w-72 items-center gap-3 rounded-full border border-[#d6a84b]/30 bg-[#d6a84b]/10 px-6 py-4 text-[#e7c87e]">
+            <div role="status" className="flex min-w-0 items-center gap-3 rounded-full border border-[#d6a84b]/30 bg-[#d6a84b]/10 px-6 py-4 text-[#e7c87e]">
               <Check size={19} />
               <span className="font-semibold">
-                You’re on the list. JazakAllahu khayran.
+                You are on the list. JazakAllahu khayran.
               </span>
             </div>
           ) : (
+            <div className="w-full max-w-md">
             <form
+              aria-busy={subscribing}
               onSubmit={handleSubscribe}
               className="flex w-full max-w-md rounded-full border border-white/15 bg-white/[.06] p-1.5 backdrop-blur"
             >
@@ -85,6 +102,9 @@ export default function Footer() {
               <input
                 id="footer-email"
                 name="email"
+                maxLength={255}
+                autoComplete="email"
+                aria-describedby={subscribeError ? "subscribe-error" : undefined}
                 required
                 type="email"
                 placeholder="Your email address"
@@ -93,11 +113,14 @@ export default function Footer() {
               <button
                 type="submit"
                 className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-[#d6a84b] text-emerald-950 transition hover:bg-[#e8cb85]"
-                aria-label="Subscribe"
+                disabled={subscribing}
+                aria-label={subscribing ? "Subscribing" : "Subscribe"}
               >
-                <ArrowRight size={18} />
+                {subscribing ? <span className="text-xs">...</span> : <ArrowRight size={18} />}
               </button>
             </form>
+            {subscribeError && <p id="subscribe-error" role="alert" className="mt-3 px-3 text-sm text-red-300">{subscribeError}</p>}
+            </div>
           )}
         </div>
       </section>

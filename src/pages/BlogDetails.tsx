@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import BlogInteractions from "../components/blog/BlogInteractions";
 import type { BlogPost } from "../data/blog";
 import { usePosts } from "../hooks/usePosts";
 import { fetchPost } from "../lib/api";
@@ -148,6 +149,8 @@ export default function BlogDetails() {
           </aside>
         </div>
       </article>
+
+      <BlogInteractions key={post.id} slug={post.slug} />
 
       <section className="mx-auto mt-16 max-w-7xl border-t border-emerald-950/10 px-6 pt-20 dark:border-white/10">
         <div className="flex items-end justify-between">

@@ -1,3 +1,4 @@
+import Subscribers from "../pages/dashboard/Subscribers";
 import PrayerTime from "../pages/PrayerTime";
 import { Routes, Route } from "react-router-dom";
 import Home from "../pages/Home";
@@ -27,6 +28,7 @@ import BlogDetails from "../pages/BlogDetails";
 import BlogAdmin from "../pages/dashboard/BlogAdmin";
 
 import Categories from "../pages/dashboard/Categories";
+import ArticleDetailsPage from "../pages/NewsDetailsPage";
 
 const AppRoutes = () => {
   return (
@@ -47,6 +49,8 @@ const AppRoutes = () => {
         <Route path="/videos" element={<Videos />} />
         <Route path="/prayer-time" element={<PrayerTime />} />
         <Route path="/audio" element={<Audio />} />
+        <Route path="/news" element={<Newsfeed />} />
+        <Route path="/news-details" element={<ArticleDetailsPage />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:slug" element={<BlogDetails />} />
       </Route>
@@ -60,6 +64,7 @@ const AppRoutes = () => {
         <Route path="downloads" element={<Orders />} />
         <Route path="products" element={<Product />} />
         <Route path="orders" element={<Orders />} />
+        <Route path="subscribers" element={<Subscribers />} />
         <Route path="users" element={<Users />} />
       </Route>
     </Routes>

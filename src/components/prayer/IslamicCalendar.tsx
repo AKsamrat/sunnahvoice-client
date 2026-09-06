@@ -185,8 +185,8 @@ function MonthCalendar({ today }: { today: CalendarDay }) {
         )}
       </div>
 
-      <aside className="overflow-hidden rounded-3xl border border-white/10 bg-white/[0.02]">
-        <div className="grid grid-cols-2 border-b border-white/10">
+      <aside className="flex flex-col overflow-hidden rounded-3xl border border-white/10 bg-white/[0.02] lg:min-h-0 lg:self-stretch lg:[contain:size]">
+        <div className="grid shrink-0 grid-cols-2 border-b border-white/10">
           {[
             ["events", "Islamic Events"],
             ["converter", "Hijri Date Converter"],
@@ -197,18 +197,16 @@ function MonthCalendar({ today }: { today: CalendarDay }) {
           ))}
         </div>
 
+        <div className="prayer-panel-scroll lg:min-h-0 lg:flex-1 lg:overflow-y-auto">
         {sideTab === "events" ? (
           <IslamicEvents year={selection.year} />
         ) : (
           <DateConverter />
         )}
+        </div>
 
-        <p className="m-5 rounded-2xl border border-white/10 p-4 text-xs leading-5 text-white/55">
-          Calculated dates from{" "}
-          <a href="https://aladhan.com/islamic-calendar-api" className="underline" target="_blank" rel="noreferrer">
-            AlAdhan
-          </a>
-          . Dates and observances may vary with local moon sighting. Laylat al-Qadr is sought in the last ten nights; no exact date is asserted.
+        <p className="m-5 shrink-0 rounded-2xl border border-white/10 p-4 text-xs leading-5 text-white/55">
+          Dates and observances may vary with local moon sighting. Laylat al-Qadr is sought in the last ten nights; no exact date is asserted.
         </p>
       </aside>
     </div>

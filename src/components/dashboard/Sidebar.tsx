@@ -8,6 +8,7 @@ import {
   Tags,
   LogOut,
   Menu,
+  Mail,
   Users,
   X,
 } from "lucide-react";
@@ -19,6 +20,7 @@ const navigation = [
   { label: "Categories", path: "/dashboard/categories", icon: Tags },
   { label: "Blog posts", path: "/dashboard/blog", icon: BookOpenText },
   { label: "Downloads", path: "/dashboard/downloads", icon: Download },
+  { label: "Subscribers", path: "/dashboard/subscribers", icon: Mail },
   { label: "Users", path: "/dashboard/users", icon: Users },
 ];
 

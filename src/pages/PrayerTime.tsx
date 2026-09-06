@@ -1,3 +1,4 @@
+import PrayerTimetable from "../components/prayer/PrayerTimetable";
 import PrayerTimesCard from "../components/home/PrayerTimesCard";
 import IslamicCalendar from "../components/prayer/IslamicCalendar";
 
@@ -11,6 +12,7 @@ export default function PrayerTime() {
         </header>
         <PrayerTimesCard expanded />
         <IslamicCalendar />
+        <PrayerTimetable />
         </div>
   </div>;
 }

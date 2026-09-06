@@ -227,7 +227,7 @@ const HeroSlider: FC = () => {
                     </div>
                 </div>
 
-                {/* ── Right shoe ────────────────────────────────────────── */}
+                {/* ── Right card ────────────────────────────────────────── */}
                 <div className="relative h-[320px] lg:h-[580px]">
                     {/* Glow orb */}
                     <div

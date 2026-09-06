@@ -6,13 +6,14 @@ import { useTheme } from "../../context/ThemeContext";
 
 const links = [
   { label: "Home", href: "/" },
+  { label: "Prayer Time", href: "/prayer-time" },
+  { label: "Audio", href: "/audio" },
   { label: "Images", href: "/images" },
   { label: "Videos", href: "/videos" },
-  { label: "Audio", href: "/audio" },
-  { label: "Prayer Time", href: "/prayer-time" },
   { label: "Blog", href: "/blog" },
+  { label: "News Feed", href: "/news" },
   // { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" },
+  // { label: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
